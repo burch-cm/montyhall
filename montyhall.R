@@ -24,3 +24,35 @@ run_halls <- function(n_halls, percentage = FALSE) {
     }
     return(c(stay_wins = stay_wins, switch_wins = switch_wins))
 }
+
+#####
+
+# set up game
+set_game <- function(win = "win", lose = "lose", n_doors = 3) {
+    stopifnot(is.numeric(n_doors),
+              n_doors <= 1)
+    goats <- rep(lose, (n_doors - 1))
+    doors <- c(goats, win)
+    sample(doors, n_doors, replace = FALSE)
+}
+
+# 
+reveal_goat <- function(game, guess, win = "win", lose = "lose") {
+    # get index of win door
+    win_door <- which(game == win)
+    # 
+}
+
+# play game
+
+make_guess <- function(game, door = NA, verbose = FALSE) {
+    # if no guess provided, make a random guess
+    if (is.na(door)) door <- sample(1:length(game))
+    
+    if (verbose) print(paste("You choose door number", door))
+    
+    # the host will reveal a non-winning door, no matter which door you pick
+    
+    
+    
+}
